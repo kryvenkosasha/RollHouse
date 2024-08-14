@@ -1,0 +1,29 @@
+.hero {
+  background-image: linear-gradient(
+      rgba(46, 47, 66, 0.7),
+      rgba(46, 47, 66, 0.7)
+    ),
+    url(../../images/hero-bg-mb.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  margin: 0 auto;
+  height: 360px;
+  padding-top: 70px;
+}
+
+.heroContent {
+    text-align: center;
+    
+}
+
+.heroTitle {
+  color: #fff;
+}
+
+.heroDescription {
+  color: #fff;
+}
+
+.heroBtn {
+}

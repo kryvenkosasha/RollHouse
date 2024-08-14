@@ -1,0 +1,27 @@
+.header {
+  max-width: 320px;
+  padding: 5px 10px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-bottom: 1px solid #101828;
+}
+
+.logo {
+  font-size: 18px;
+  font-weight: 700;
+  color: #e44848;
+}
+
+.logo > span {
+  color: #101828;
+}
+
+.navList {
+  display: none;
+}
+
+.menuBtn {
+  border: none;
+  background-color: inherit;
+}
