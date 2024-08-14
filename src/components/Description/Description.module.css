@@ -1,0 +1,29 @@
+.description {
+  max-width: 320px;
+  margin: 0 auto;
+  padding: 20px 10px;
+  margin-top: 40px;
+}
+
+.intro {
+  font-size: 16px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.cards {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.card > p {
+  margin-left: 15px;
+}
+
+.cardTitle {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  text-align: center;
+}

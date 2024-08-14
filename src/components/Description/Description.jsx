@@ -1,23 +1,25 @@
+import styles from "./Description.module.css";
+
 export default function Descriprion() {
   return (
-    <section className="description">
-      <div className="intro">
+    <section className={styles.description}>
+      <div className={styles.intro}>
         <p>
           Our campers are designed to provide the ultimate travel experience,
           combining luxury, convenience, and freedom.
         </p>
       </div>
-      <div className="cards">
-        <article className="card">
-          <h3>Comfortable Interiors</h3>
+      <div className={styles.cards}>
+        <article className={styles.card}>
+          <h3 className={styles.cardTitle}>Comfortable Interiors</h3>
           <p>Experience the luxury of home on the road.</p>
         </article>
-        <article className="card">
-          <h3>Flexible Rental Options</h3>
+        <article className={styles.card}>
+          <h3 className={styles.cardTitle}>Flexible Rental Options</h3>
           <p>Rent by the day, week, or month – the choice is yours.</p>
         </article>
-        <article className="card">
-          <h3>Fully Equipped</h3>
+        <article className={styles.card}>
+          <h3 className={styles.cardTitle}>Fully Equipped</h3>
           <p>Everything you need for a perfect getaway.</p>
         </article>
       </div>

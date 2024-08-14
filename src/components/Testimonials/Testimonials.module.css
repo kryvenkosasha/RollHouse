@@ -1,0 +1,28 @@
+.testimonials {
+  max-width: 320px;
+  margin: 0 auto;
+  margin-bottom: 50px;
+  padding: 0 10px;
+}
+
+.cards {
+  margin-top: 70px;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+.card {
+  border: 1px solid #101828;
+  border-radius: 20px;
+  padding: 30px 5px 5px 5px;
+  position: relative;
+}
+
+.customerImage {
+  position: absolute;
+  top: -30px;
+  left: 110px;
+  width: 70px;
+  border-radius: 50%;
+}

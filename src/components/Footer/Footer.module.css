@@ -1,0 +1,14 @@
+.footer {
+  background-color: #475467;
+  color: #fff;
+}
+
+.container {
+  max-width: 320px;
+  margin: 0 auto;
+  padding: 50px 10px;
+}
+
+.navList{
+    margin-bottom: 15px;
+}
