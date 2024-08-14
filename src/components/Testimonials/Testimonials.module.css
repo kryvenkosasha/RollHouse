@@ -26,3 +26,21 @@
   width: 70px;
   border-radius: 50%;
 }
+
+@media screen and (min-width: 768px) {
+  .testimonials {
+    max-width: 768px;
+  }
+
+  .cards {
+    flex-direction: row;
+  }
+
+  .card {
+    width: calc(100% / 3);
+  }
+
+  .customerImage{
+    left: 70px;
+  }
+}

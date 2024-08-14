@@ -27,3 +27,27 @@
   margin-bottom: 10px;
   text-align: center;
 }
+
+@media screen and (min-width: 768px) {
+  .description {
+    max-width: 768px;
+    margin-bottom: 50px;
+  }
+
+  .intro{
+    margin-bottom: 30px;
+  }
+
+  .cards {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .card {
+    max-width: calc((100% - 50px) / 3);
+  }
+
+  .card > p {margin: 0;
+    text-align: center;
+  }
+}
