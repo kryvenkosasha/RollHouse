@@ -1,26 +1,25 @@
-import { useEffect, useState } from "react";
+import { useEffect} from "react";
 import Camper from "../Camper/Camper";
-import axios from "axios";
+import { useSelector, useDispatch } from "react-redux";
+import { fetchCampers } from "../../redux/campers/campersSlice";
 
 const CamperList = () => {
-  const [data, setData] = useState([]);
+  const dispatch = useDispatch();
+
+  // Отримання статусу та даних кемперів зі стору
+  const campers = useSelector((state) => state.campers.filteredCampers);
+  const status = useSelector((state) => state.campers.status);
 
   useEffect(() => {
-    axios
-      .get("https://662e153fa7dda1fa378bffe3.mockapi.io/campers")
-      .then((response) => {
-        setData(response.data);
-      })
-      .catch((error) => {
-        console.error("Error fetching data:", error);
-      });
-  }, []);
-
+    if (status === "idle") {
+      dispatch(fetchCampers());
+    }
+  }, [status, dispatch]);
 
   return (
     <ul className="camper-list">
-      {data.length > 0 ? (
-        data.map((camper) => (
+      {campers.length > 0 ? (
+        campers.map((camper) => (
           <li key={camper._id}>
             <Camper camper={camper} />
           </li>
@@ -31,5 +30,4 @@ const CamperList = () => {
     </ul>
   );
 };
-
 export default CamperList;
