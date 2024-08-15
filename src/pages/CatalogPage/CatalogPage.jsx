@@ -1,9 +1,13 @@
-import Navigation from "../../components/Navigation/Navigation";
+import CamperList from "../../components/CampersList/CampersList";
 
-export default function CatalogPage() {
+const CatalogPage = () => {
   return (
-    <>
-      <Navigation />
-    </>
+    <div>
+      <main>
+        <CamperList />
+      </main>
+    </div>
   );
-}
+};
+
+export default CatalogPage;
