@@ -1,15 +1,20 @@
-
-import { useDispatch } from 'react-redux';
-import { setTempEquipmentFilter } from '../../redux/campers/campersSlice';
+import { useDispatch, useSelector } from "react-redux";
+import { setTempEquipmentFilter } from "../../redux/campers/campersSlice";
 
 const EquipmentFilter = () => {
   const dispatch = useDispatch();
+  const currentFilters = useSelector(
+    (state) => state.campers.tempFilters.equipment
+  );
 
   const handleCheckboxChange = (event) => {
     const { name, checked } = event.target;
-    dispatch(setTempEquipmentFilter((prevFilters) =>
-      checked ? [...prevFilters, name] : prevFilters.filter(item => item !== name)
-    ));
+
+    const updatedFilters = checked
+      ? [...currentFilters, name]
+      : currentFilters.filter((item) => item !== name);
+
+    dispatch(setTempEquipmentFilter(updatedFilters));
   };
 
   return (
@@ -19,16 +24,27 @@ const EquipmentFilter = () => {
         Kitchen
       </label>
       <label>
-        <input type="checkbox" name="bathroom" onChange={handleCheckboxChange} />
-        Bathroom
+        <input type="checkbox" name="shower" onChange={handleCheckboxChange} />
+        shower
       </label>
       <label>
-        <input type="checkbox" name="beds" onChange={handleCheckboxChange} />
-        Beds
+        <input
+          type="checkbox"
+          name="Automatic"
+          onChange={handleCheckboxChange}
+        />
+        Automatic
+      </label>
+      <label>
+        <input type="checkbox" name="TV" onChange={handleCheckboxChange} />
+        TV
+      </label>
+      <label>
+        <input type="checkbox" name="AC" onChange={handleCheckboxChange} />
+        AC
       </label>
     </div>
   );
 };
 
 export default EquipmentFilter;
-    

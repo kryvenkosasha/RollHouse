@@ -1,9 +1,8 @@
-
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import axios from 'axios';
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import axios from "axios";
 
 export const fetchCampers = createAsyncThunk(
-  'campers/fetchCampers',
+  "campers/fetchCampers",
   async () => {
     const response = await axios.get(
       "https://662e153fa7dda1fa378bffe3.mockapi.io/campers"
@@ -15,7 +14,7 @@ export const fetchCampers = createAsyncThunk(
 const initialState = {
   campers: [],
   filteredCampers: [],
-  status: 'idle',
+  status: "idle",
   error: null,
   filters: {
     equipment: [],
@@ -24,11 +23,11 @@ const initialState = {
   tempFilters: {
     equipment: [],
     bodyType: [],
-  }
+  },
 };
 
 const campersSlice = createSlice({
-  name: 'campers',
+  name: "campers",
   initialState,
   reducers: {
     setTempEquipmentFilter: (state, action) => {
@@ -45,15 +44,15 @@ const campersSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(fetchCampers.pending, (state) => {
-        state.status = 'loading';
+        state.status = "loading";
       })
       .addCase(fetchCampers.fulfilled, (state, action) => {
-        state.status = 'succeeded';
+        state.status = "succeeded";
         state.campers = action.payload;
         state.filteredCampers = filterCampers(action.payload, state.filters);
       })
       .addCase(fetchCampers.rejected, (state, action) => {
-        state.status = 'failed';
+        state.status = "failed";
         state.error = action.error.message;
       });
   },
@@ -61,13 +60,18 @@ const campersSlice = createSlice({
 
 const filterCampers = (campers, filters) => {
   return campers.filter((camper) => {
-    const matchesEquipment = filters.equipment.every((item) => camper.details[item]);
-    const matchesBodyType = filters.bodyType.length === 0 || filters.bodyType.includes(camper.bodyType);
+    const camperEquipment = camper.equipment.split(","); 
+    const matchesEquipment = filters.equipment.every((item) =>
+      camperEquipment.includes(item)
+    );
+    const matchesBodyType =
+      filters.bodyType.length === 0 ||
+      filters.bodyType.includes(camper.bodyType);
     return matchesEquipment && matchesBodyType;
   });
 };
 
-export const { setTempEquipmentFilter, setTempBodyTypeFilter, applyFilters } = campersSlice.actions;
+export const { setTempEquipmentFilter, setTempBodyTypeFilter, applyFilters } =
+  campersSlice.actions;
 
 export default campersSlice.reducer;
-    
