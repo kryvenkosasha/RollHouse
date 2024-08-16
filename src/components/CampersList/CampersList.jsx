@@ -6,9 +6,9 @@ import { fetchCampers } from "../../redux/campers/campersSlice";
 const CamperList = () => {
   const dispatch = useDispatch();
 
-  // Отримання статусу та даних кемперів зі стору
   const campers = useSelector((state) => state.campers.filteredCampers);
-  const status = useSelector((state) => state.campers.status);
+    const status = useSelector((state) => state.campers.status);
+    
 
   useEffect(() => {
     if (status === "idle") {
