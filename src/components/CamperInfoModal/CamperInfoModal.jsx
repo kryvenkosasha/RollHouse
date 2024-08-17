@@ -1,11 +1,15 @@
 import { useEffect, useState } from "react";
 import { IoClose } from "react-icons/io5";
+import clsx from "clsx";
+import style from "./CamperInfoModal.module.css";
 
 export default function CamperInfoModal({ camper, onClose }) {
-  const { equipment, reviews, name, price, gallery, rating, location } = camper;
+  const { details, reviews, name, price, gallery, rating, location } = camper;
   const [activeSection, setActiveSection] = useState(null);
 
   useEffect(() => {
+    console.log(camper);
+
     const handleKeyDown = (event) => {
       if (event.key === "Escape") onClose();
     };
@@ -20,18 +24,18 @@ export default function CamperInfoModal({ camper, onClose }) {
   };
 
   return (
-    <div className="modal-overlay" onClick={handleClickBackdrop}>
-      <div className="modal-content">
-        <button onClick={onClose} className="modal-close-btn">
+    <div className={style.backdrop} onClick={handleClickBackdrop}>
+      <div className={style.modalContent}>
+        <button onClick={onClose} className={style.modalCloseBtn}>
           <IoClose />
         </button>
 
-        <div className="modal-header">
+        <div className={style.modalInfo}>
           <h2>{name}</h2>
           <p>{location}</p>
           <p>€{price}</p>
           <p>Rating: {rating}</p>
-          <ul className="modal-gallery">
+          <ul className={style.modalGallery}>
             {gallery.map((image, index) => (
               <li key={index}>
                 <img src={image} alt={`Gallery image ${index + 1}`} />
@@ -40,15 +44,15 @@ export default function CamperInfoModal({ camper, onClose }) {
           </ul>
         </div>
 
-        <div className="modal-buttons">
+        <div className={style.sectionsButtons}>
           <button
-            className={activeSection === "features" ? "active" : ""}
+            className={clsx({ active: activeSection === "features" })}
             onClick={() => setActiveSection("features")}
           >
             Features
           </button>
           <button
-            className={activeSection === "reviews" ? "active" : ""}
+            className={clsx({ active: activeSection === "reviews" })}
             onClick={() => setActiveSection("reviews")}
           >
             Reviews
@@ -56,12 +60,18 @@ export default function CamperInfoModal({ camper, onClose }) {
         </div>
 
         {activeSection && (
-          <div className="modal-section">
+          <div className={style.modalSection}>
             {activeSection === "features" && (
               <div>
                 <h3>Features</h3>
                 <ul>
-                 <li>Features</li>
+                  {reviews.map((review) => (
+                    <li key={review.comment.slice(0, 10)}>
+                      <p>{review.reviewer_name}</p>
+                      <p>{review.reviewer_rating}</p>
+                      <p>{review.comment}</p>
+                    </li>
+                  ))}
                 </ul>
               </div>
             )}
@@ -70,12 +80,18 @@ export default function CamperInfoModal({ camper, onClose }) {
               <div>
                 <h3>Reviews</h3>
                 <ul>
-                  <li>reviews</li>
+                  {reviews.map((review) => (
+                    <li key={review.comment.slice(0, 10)}>
+                      <p>{review.reviewer_name}</p>
+                      <p>{review.reviewer_rating}</p>
+                      <p>{review.comment}</p>
+                    </li>
+                  ))}
                 </ul>
               </div>
             )}
 
-            <div className="booking-form">
+            <div className={style.bookingForm}>
               <h3>Book your camper now</h3>
               <form>
                 <div>
