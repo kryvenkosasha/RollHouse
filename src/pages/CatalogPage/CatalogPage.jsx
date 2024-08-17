@@ -5,6 +5,8 @@ import { useDispatch } from "react-redux";
 import { applyFilters } from "../../redux/campers/campersSlice";
 import Navigation from "../../components/Navigation/Navigation";
 
+import styles from "./CatalogPage.module.css";
+
 const CatalogPage = () => {
   const dispatch = useDispatch();
 
@@ -14,10 +16,12 @@ const CatalogPage = () => {
 
   return (
     <>
-      <Navigation/>
-      <EquipmentFilter />
-      <BodyTypeFilter />
-      <button onClick={handleSearch}>Search</button>
+      <Navigation />
+      <div className={styles.filters}>
+        <EquipmentFilter />
+        <BodyTypeFilter />
+        <button className={styles.searchBtn} onClick={handleSearch}>Search</button>
+      </div>
       <CamperList />
     </>
   );

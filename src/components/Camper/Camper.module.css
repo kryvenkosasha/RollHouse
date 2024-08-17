@@ -1,0 +1,43 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+  border: 1px solid rgba(16, 24, 40, 0.2);
+  border-radius: 10px;
+}
+
+.imageContainer {
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.content {
+}
+
+.priceAndFavorite {
+}
+
+.price {
+}
+
+.favoriteButton {
+  background-color: inherit;
+  border: none;
+}
+
+.details {
+}
+
+.moreButton {
+  border: none;
+  background-color: #e44848;
+  border-radius: 25px;
+  color: #fff;
+  padding: 16px 40px;
+}

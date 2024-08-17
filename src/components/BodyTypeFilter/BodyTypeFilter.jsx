@@ -1,6 +1,9 @@
-import { useSelector } from 'react-redux';
-import { useDispatch } from 'react-redux';
-import { setTempBodyTypeFilter } from '../../redux/campers/campersSlice';
+import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { setTempBodyTypeFilter } from "../../redux/campers/campersSlice";
+
+import styles from "./BodyTypeFilter.module.css";
+import { TbCamper } from "react-icons/tb";
 
 const BodyTypeFilter = () => {
   const dispatch = useDispatch();
@@ -19,27 +22,45 @@ const BodyTypeFilter = () => {
   };
 
   return (
-    <div>
-      <label>
-        <input type="checkbox" name="VAN" onChange={handleCheckboxChange} />
-        VAN
+    <div className={styles.checkboxContainer}>
+      <label className={styles.checkboxLabel}>
+        <input
+          type="checkbox"
+          name="VAN"
+          onChange={handleCheckboxChange}
+          className={styles.checkboxInput}
+        />
+        <span className={styles.checkboxContent}>
+          <TbCamper />
+          VAN
+        </span>
       </label>
-      <label>
+      <label className={styles.checkboxLabel}>
         <input
           type="checkbox"
           name="Fully Integrated"
           onChange={handleCheckboxChange}
+          className={styles.checkboxInput}
         />
-        Fully Integrated
+        <span className={styles.checkboxContent}>
+          <TbCamper />
+          Fully Integrated
+        </span>
       </label>
-      <label>
-        <input type="checkbox" name="Alcove" onChange={handleCheckboxChange} />
-        Alcove
+      <label className={styles.checkboxLabel}>
+        <input
+          type="checkbox"
+          name="Alcove"
+          onChange={handleCheckboxChange}
+          className={styles.checkboxInput}
+        />
+        <span className={styles.checkboxContent}>
+          <TbCamper />
+          Alcove
+        </span>
       </label>
     </div>
   );
 };
 
-
 export default BodyTypeFilter;
-    

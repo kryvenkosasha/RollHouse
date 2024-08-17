@@ -1,0 +1,9 @@
+.campers{
+    padding: 0 10px;
+}
+
+.camperList{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}

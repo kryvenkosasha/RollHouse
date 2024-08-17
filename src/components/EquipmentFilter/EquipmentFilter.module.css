@@ -1,0 +1,35 @@
+.checkboxContainer {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.checkboxLabel {
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  padding: 10px 15px;
+  transition: border-color 0.3s;
+}
+
+.checkboxInput {
+  display: none;
+}
+
+.checkboxInput:checked + .checkboxContent {
+  border-color: #e44848;
+}
+
+.checkboxContent {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  padding: 10px;
+  transition: border-color 0.3s;
+}
+
+
