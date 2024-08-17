@@ -37,7 +37,7 @@ export default function CamperInfoModal({ camper, onClose }) {
           <p>Rating: {rating}</p>
           <ul className={style.modalGallery}>
             {gallery.map((image, index) => (
-              <li key={index}>
+              <li key={index} className={style.imageContainer}>
                 <img src={image} alt={`Gallery image ${index + 1}`} />
               </li>
             ))}
