@@ -126,6 +126,7 @@
   height: 80px;
   border-radius: 10px;
   padding-left: 10px;
+  resize: none;
 }
 
 .bookingFormComment::placeholder {

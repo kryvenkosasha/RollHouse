@@ -1,10 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 
 import styles from "./Navigation.module.css";
 import { IoMenu } from "react-icons/io5";
 import { NavLink, Link } from "react-router-dom";
+import ModalMenu from "../ModalMenu/ModalMenu";
 
 export default function Navigation() {
+  const [openMenu, setOpenMenu] = useState(false);
+
+  const handleOpenMenu = () => {
+    setOpenMenu(!openMenu);
+    if (openMenu === true) {
+      document.body.style.overflow = "auto";
+    } else {
+      document.body.style.overflow = "hidden";
+    }
+  };
+
   return (
     <>
       <header className={styles.header}>
@@ -12,7 +24,7 @@ export default function Navigation() {
           Roll<span>House</span>
         </Link>
         <nav>
-          <button className={styles.menuBtn}>
+          <button className={styles.menuBtn} onClick={handleOpenMenu}>
             <IoMenu size="24px" />
           </button>
           <ul className={styles.navList}>
@@ -28,6 +40,7 @@ export default function Navigation() {
           </ul>
         </nav>
       </header>
+      {openMenu && <ModalMenu />}
     </>
   );
 }
