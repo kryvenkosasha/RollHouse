@@ -56,3 +56,23 @@
     margin-bottom: 30px;
   }
 }
+
+@media screen and (min-width: 1280px){
+  .hero{
+    padding: 240px 20px;
+  }
+
+   .heroContent{
+    max-width: 500px;
+    margin-left: 150px;
+  }
+
+  .heroTitle{
+    font-size: 40px;
+    margin-bottom: 30px;
+  }
+
+  .heroDescription{
+    margin-bottom: 30px;
+  }
+}

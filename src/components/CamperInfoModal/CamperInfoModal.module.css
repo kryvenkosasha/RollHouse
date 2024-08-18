@@ -141,7 +141,7 @@
   color: #fff;
 }
 
-.detailsTitle{
+.detailsTitle {
   margin-top: 30px;
 }
 
@@ -163,4 +163,22 @@
 
 .detailContainer > p {
   font-weight: 600;
+}
+
+@media screen and (min-width: 768px) {
+  .modalContent {
+    max-width: 700px;
+  }
+  .modalCloseBtn {
+    left: 715px;
+  }
+
+  .modalGallery {
+  max-width: 600px;
+}
+
+.imageContainer{
+  max-width: 600px;
+  margin: 0 auto;
+}
 }
