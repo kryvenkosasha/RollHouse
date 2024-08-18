@@ -1,3 +1,5 @@
+import React from "react";
+
 import { useEffect, useState } from "react";
 import { IoClose, IoPersonSharp } from "react-icons/io5";
 import { FaStar } from "react-icons/fa";

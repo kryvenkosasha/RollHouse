@@ -1,3 +1,5 @@
+import React from "react";
+
 import styles from "./Navigation.module.css";
 import { IoMenu } from "react-icons/io5";
 import { NavLink, Link } from "react-router-dom";

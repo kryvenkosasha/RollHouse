@@ -1,3 +1,5 @@
+import React from "react";
+
 import customer1 from "../../images/customer1.jpg";
 import customer2 from "../../images/customer2.jpg";
 import customer3 from "../../images/customer3.jpg";

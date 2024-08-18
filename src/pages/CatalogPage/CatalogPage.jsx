@@ -1,3 +1,5 @@
+import React from "react";
+
 import CamperList from "../../components/CampersList/CampersList";
 import EquipmentFilter from "../../components/EquipmentFilter/EquipmentFilter";
 import BodyTypeFilter from "../../components/BodyTypeFilter/BodyTypeFilter";
@@ -20,7 +22,9 @@ const CatalogPage = () => {
       <div className={styles.filters}>
         <EquipmentFilter />
         <BodyTypeFilter />
-        <button className={styles.searchBtn} onClick={handleSearch}>Search</button>
+        <button className={styles.searchBtn} onClick={handleSearch}>
+          Search
+        </button>
       </div>
       <CamperList />
     </>

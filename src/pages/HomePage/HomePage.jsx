@@ -1,3 +1,5 @@
+import React from "react";
+
 import Descriprion from "../../components/Description/Description";
 import Footer from "../../components/Footer/Footer";
 import Hero from "../../components/Hero/Hero";

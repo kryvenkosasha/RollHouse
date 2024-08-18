@@ -1,4 +1,6 @@
-import styles from './DetailsComponent.module.css'
+import React from "react";
+
+import styles from "./DetailsComponent.module.css";
 
 export default function DetailsComponent({ details }) {
   const formatDetails = (details) => {
@@ -25,5 +27,7 @@ export default function DetailsComponent({ details }) {
     return spans;
   };
 
-  return <div className={styles.detailsContainer}>{formatDetails(details)}</div>;
+  return (
+    <div className={styles.detailsContainer}>{formatDetails(details)}</div>
+  );
 }

@@ -1,9 +1,11 @@
+import React from "react";
+
 import styles from "./Footer.module.css";
 
 export default function Footer() {
   return (
     <footer className={styles.footer}>
-     <div className={styles.container}>
+      <div className={styles.container}>
         <nav>
           <ul className={styles.navList}>
             <li>
@@ -25,7 +27,7 @@ export default function Footer() {
             Phone: +123 456 7890
           </address>
         </div>
-     </div>
+      </div>
     </footer>
   );
 }

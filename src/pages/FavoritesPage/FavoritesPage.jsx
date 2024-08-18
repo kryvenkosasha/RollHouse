@@ -1,3 +1,5 @@
+import React from "react";
+
 import { useEffect, useState } from "react";
 import Navigation from "../../components/Navigation/Navigation";
 import Camper from "../../components/Camper/Camper";
