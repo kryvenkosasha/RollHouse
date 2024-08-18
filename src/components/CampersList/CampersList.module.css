@@ -7,3 +7,10 @@
     flex-direction: column;
     gap: 10px;
 }
+
+@media screen and (min-width: 1280px){
+    .camperList{
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+}

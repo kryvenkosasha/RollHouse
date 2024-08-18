@@ -46,37 +46,39 @@ export default function Camper({ camper }) {
   };
 
   return (
-    <article className={styles.card}>
-      <div className={styles.imageContainer}>
-        <img src={gallery[0]} alt={name} className={styles.image} />
-      </div>
-
-      <div className={styles.content}>
-        <div className={styles.details}>
-          <h2 className={styles.name}>{name}</h2>
-          <p className={styles.rating}>
-            <FaStar color="#ffc531" /> {rating}
-          </p>
-          <p className={styles.location}>{location}</p>
+    <section className={styles.container}>
+      <article className={styles.card}>
+        <div className={styles.imageContainer}>
+          <img src={gallery[0]} alt={name} className={styles.image} />
         </div>
-        <div className={styles.priceAndFavorite}>
-          <p className={styles.price}>${price}</p>
-          <button
-            onClick={handleFavoriteToggle}
-            className={styles.favoriteButton}
-          >
-            {isFavorite ? <FaHeart color="#e44848" /> : <FaRegHeart />}
+  
+        <div className={styles.content}>
+          <div className={styles.details}>
+            <h2 className={styles.name}>{name}</h2>
+            <p className={styles.rating}>
+              <FaStar color="#ffc531" /> {rating}
+            </p>
+            <p className={styles.location}>{location}</p>
+          </div>
+          <div className={styles.priceAndFavorite}>
+            <p className={styles.price}>${price}</p>
+            <button
+              onClick={handleFavoriteToggle}
+              className={styles.favoriteButton}
+            >
+              {isFavorite ? <FaHeart color="#e44848" /> : <FaRegHeart />}
+            </button>
+          </div>
+  
+          <button onClick={handleOpenModal} className={styles.moreButton}>
+            Show more
           </button>
         </div>
-
-        <button onClick={handleOpenModal} className={styles.moreButton}>
-          Show more
-        </button>
-      </div>
-
-      {isModalOpen && (
-        <CamperInfoModal camper={camper} onClose={handleCloseModal} />
-      )}
-    </article>
+  
+        {isModalOpen && (
+          <CamperInfoModal camper={camper} onClose={handleCloseModal} />
+        )}
+      </article>
+    </section>
   );
 }

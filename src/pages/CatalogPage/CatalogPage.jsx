@@ -6,6 +6,7 @@ import BodyTypeFilter from "../../components/BodyTypeFilter/BodyTypeFilter";
 import { useDispatch } from "react-redux";
 import { applyFilters } from "../../redux/campers/campersSlice";
 import Navigation from "../../components/Navigation/Navigation";
+import Footer from '../../components/Footer/Footer'
 
 import styles from "./CatalogPage.module.css";
 
@@ -27,6 +28,7 @@ const CatalogPage = () => {
         </button>
       </div>
       <CamperList />
+      <Footer/>
     </>
   );
 };
