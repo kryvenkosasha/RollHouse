@@ -1,24 +1,27 @@
 import styles from "./Navigation.module.css";
 import { IoMenu } from "react-icons/io5";
+import { NavLink, Link } from "react-router-dom";
 
 export default function Navigation() {
   return (
     <>
-      <header className={styles.header} >
-        <a href="/" className={styles.logo}>
+      <header className={styles.header}>
+        <Link to="/" className={styles.logo}>
           Roll<span>House</span>
-        </a>
+        </Link>
         <nav>
-          <button className={styles.menuBtn}><IoMenu size="24px"/></button>
+          <button className={styles.menuBtn}>
+            <IoMenu size="24px" />
+          </button>
           <ul className={styles.navList}>
             <li>
-              <a href="/">Home</a>
+              <NavLink to="/">Home</NavLink>
             </li>
             <li>
-              <a href="/catalog">Catalog</a>
+              <NavLink to="/catalog">Catalog</NavLink>
             </li>
             <li>
-              <a href="/favorites">Favorites</a>
+              <NavLink to="/favorites">Favorites</NavLink>
             </li>
           </ul>
         </nav>
