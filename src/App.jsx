@@ -3,7 +3,7 @@ import HomePage from "./pages/HomePage/HomePage";
 import CatalogPage from "./pages/CatalogPage/CatalogPage";
 import FavoritesPage from "./pages/FavoritesPage/FavoritesPage";
 
-import "./app.css";
+import "./App.css";
 
 function App() {
   return (
