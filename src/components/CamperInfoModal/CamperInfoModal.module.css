@@ -1,4 +1,5 @@
 .backdrop {
+  padding: 0 10px;
   display: flex;
   position: fixed;
   top: 0;
@@ -15,17 +16,150 @@
   position: relative;
   padding: 40px 24px;
   background: #fff;
-  border: 2px solid #111;
   border-radius: 18px;
-  max-width: 335px;
+  max-width: 310px;
+  max-height: 80vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
   overflow-y: auto;
 }
 
-.modalGallery{display: flex;gap: 10px;}
+.modalCloseBtn {
+  position: absolute;
+  border: none;
+  background-color: inherit;
+  left: 330px;
+  top: 10px;
+}
+
+.mainInfo {
+  display: flex;
+  gap: 10px;
+}
+
+.price {
+  font-weight: 600;
+  font-size: 20px;
+}
+
+.modalGallery {
+  display: flex;
+  max-width: 310px;
+  gap: 10px;
+}
 
 .imageContainer {
-  max-width: 200px;
+  max-width: 310px;
+  display: flex;
+  justify-content: center;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.description {
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+
+.sectionsButtons {
+  display: flex;
+  gap: 15px;
+  border-bottom: 1px solid rgba(16, 24, 40, 0.2);
+}
+
+.sectionBtn {
+  font-weight: 600;
+}
+
+.reviewsList {
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.reviewerImg {
+  display: flex;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(190, 190, 190);
+}
+
+.reviewerInfo {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.bookingFormContainer {
+  border: 1px solid rgba(16, 24, 40, 0.2);
+  border-radius: 15px;
+  padding: 15px;
+  margin-top: 20px;
+}
+
+.bookingForm {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.bookingFormInput {
+  border: none;
+  background-color: #f7f7f7;
+  width: 250px;
+  height: 40px;
+  border-radius: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.bookingFormComment {
+  border: none;
+  background-color: #f7f7f7;
+  width: 250px;
+  height: 80px;
+  border-radius: 10px;
+  padding-left: 10px;
+}
+
+.bookingFormComment::placeholder {
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+}
+
+.bookingFormBtn {
+  background-color: #e44848;
+  padding: 15px 20px;
+  border-radius: 20px;
+  color: #fff;
+}
+
+.detailsTitle{
+  margin-top: 30px;
+}
+
+.detailsList {
+  border-top: 1px solid rgba(16, 24, 40, 0.2);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-top: 15px;
+}
+
+.detailsItem {
+}
+
+.detailContainer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.detailContainer > p {
+  font-weight: 600;
 }

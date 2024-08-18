@@ -1,0 +1,12 @@
+.span{
+    padding: 5px;
+    background-color: #f2f4f7;
+    border-radius: 15px;
+}
+
+.detailsContainer{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-top: 10px;
+}

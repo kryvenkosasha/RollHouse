@@ -35,10 +35,12 @@ export default function Camper({ camper }) {
 
   const handleOpenModal = () => {
     setIsModalOpen(true);
+    document.body.style.overflow = "hidden";
   };
 
   const handleCloseModal = () => {
     setIsModalOpen(false);
+    document.body.style.overflow = "auto";
   };
 
   return (
