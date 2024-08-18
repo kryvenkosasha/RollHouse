@@ -9,12 +9,11 @@ export default function Navigation() {
   const [openMenu, setOpenMenu] = useState(false);
 
   const handleOpenMenu = () => {
-    setOpenMenu(!openMenu);
-    if (openMenu === true) {
-      document.body.style.overflow = "auto";
-    } else {
-      document.body.style.overflow = "hidden";
-    }
+    setOpenMenu(true);
+  };
+
+  const handleCloseModal = () => {
+    setOpenMenu(false);
   };
 
   return (
@@ -40,7 +39,7 @@ export default function Navigation() {
           </ul>
         </nav>
       </header>
-      {openMenu && <ModalMenu />}
+      {openMenu && <ModalMenu onClose={handleCloseModal} />}
     </>
   );
 }

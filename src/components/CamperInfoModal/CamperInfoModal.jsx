@@ -1,6 +1,8 @@
 import React from "react";
 
 import { useEffect, useState } from "react";
+import { Formik, Form, Field, ErrorMessage } from "formik";
+import * as Yup from "yup";
 import { IoClose, IoPersonSharp } from "react-icons/io5";
 import { FaStar } from "react-icons/fa";
 import { CiLocationOn } from "react-icons/ci";
@@ -12,6 +14,9 @@ import DetailsComponent from "../DetailsComponent/DetailsComponent";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import toast, { Toaster } from "react-hot-toast";
+
+const notify = () => toast("Success!");
 
 export default function CamperInfoModal({ camper, onClose }) {
   const {
@@ -39,6 +44,17 @@ export default function CamperInfoModal({ camper, onClose }) {
     slidesToShow: 1,
     slidesToScroll: 1,
   };
+
+  const validationSchema = Yup.object({
+    name: Yup.string().trim().required("Name is required"),
+    email: Yup.string()
+      .email("Invalid email address")
+      .required("Email is required"),
+    bookingDate: Yup.date()
+      .required("Booking date is required")
+      .min(new Date(), "Booking date cannot be in the past"),
+    comment: Yup.string(),
+  });
 
   const renderRatingStars = (rating) => {
     return (
@@ -187,53 +203,93 @@ export default function CamperInfoModal({ camper, onClose }) {
 
             <div className={style.bookingFormContainer}>
               <h3>Book your camper now</h3>
-              <form className={style.bookingForm}>
-                <div className={style.inputContainer}>
-                  <label htmlFor="name"></label>
-                  <input
-                    className={style.bookingFormInput}
-                    type="text"
-                    id="name"
-                    name="name"
-                    placeholder="Name"
-                    required
-                  />
-                </div>
-                <div className={style.inputContainer}>
-                  <label htmlFor="email"></label>
-                  <input
-                    className={style.bookingFormInput}
-                    type="email"
-                    id="email"
-                    name="email"
-                    placeholder="Email"
-                    required
-                  />
-                </div>
-                <div className={style.inputContainer}>
-                  <label htmlFor="bookingDate"></label>
-                  <input
-                    className={style.bookingFormInput}
-                    type="date"
-                    id="bookingDate"
-                    name="bookingDate"
-                    placeholder="Booking date"
-                    required
-                  />
-                </div>
-                <div className={style.inputContainer}>
-                  <label htmlFor="comment"></label>
-                  <textarea
-                    className={style.bookingFormComment}
-                    id="comment"
-                    name="comment"
-                    placeholder="Comment"
-                  ></textarea>
-                </div>
-                <button className={style.bookingFormBtn} type="submit">
-                  Send
-                </button>
-              </form>
+              <Formik
+                initialValues={{
+                  name: "",
+                  email: "",
+                  bookingDate: "",
+                  comment: "",
+                }}
+                validationSchema={validationSchema}
+                onSubmit={notify}
+              >
+                {({ isSubmitting }) => (
+                  <Form className={style.bookingForm}>
+                    <div className={style.inputContainer}>
+                      <label htmlFor="name"></label>
+                      <Field
+                        className={style.bookingFormInput}
+                        type="text"
+                        id="name"
+                        name="name"
+                        placeholder="Name"
+                      />
+                      <ErrorMessage
+                        name="name"
+                        component="div"
+                        className={style.error}
+                      />
+                    </div>
+
+                    <div className={style.inputContainer}>
+                      <label htmlFor="email"></label>
+                      <Field
+                        className={style.bookingFormInput}
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="Email"
+                      />
+                      <ErrorMessage
+                        name="email"
+                        component="div"
+                        className={style.error}
+                      />
+                    </div>
+
+                    <div className={style.inputContainer}>
+                      <label htmlFor="bookingDate"></label>
+                      <Field
+                        className={style.bookingFormInput}
+                        type="date"
+                        id="bookingDate"
+                        name="bookingDate"
+                        placeholder="Booking date"
+                      />
+                      <ErrorMessage
+                        name="bookingDate"
+                        component="div"
+                        className={style.error}
+                      />
+                    </div>
+
+                    <div className={style.inputContainer}>
+                      <label htmlFor="comment"></label>
+                      <Field
+                        as="textarea"
+                        className={style.bookingFormComment}
+                        id="comment"
+                        name="comment"
+                        placeholder="Comment"
+                      />
+                      <ErrorMessage
+                        name="comment"
+                        component="div"
+                        className={style.error}
+                      />
+                    </div>
+
+                    <button
+                      className={style.bookingFormBtn}
+                      type="submit"
+                      disabled={isSubmitting}
+                    >
+                      Send
+                    </button>
+                    <Toaster/>
+                  </Form>
+                )}
+              </Formik>
             </div>
           </div>
         )}
