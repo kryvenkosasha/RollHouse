@@ -24,7 +24,9 @@ button {
   border: none;
   background-color: inherit;
   cursor: pointer;
+  transition: background-color 0.3s ease;
 }
+
 
 h1,
 h2,
@@ -73,7 +75,6 @@ form {
   padding: 0;
 }
 
-.active{
-border-bottom: 5px solid #e44848;
+.active {
+  border-bottom: 5px solid #e44848;
 }
-

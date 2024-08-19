@@ -45,7 +45,16 @@
   border-radius: 25px;
   color: #fff;
   padding: 16px 40px;
+  transition: transform 0.3s ease;
 }
+
+
+.moreButton:hover {
+  background-color: #d84343;
+  color: #fff;
+  transform: scale(1.1);
+}
+
 
 @media screen and (min-width: 768px) {
   .card {

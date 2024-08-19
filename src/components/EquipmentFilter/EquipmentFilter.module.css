@@ -10,8 +10,10 @@
   cursor: pointer;
   border: 2px solid transparent;
   border-radius: 8px;
-  transition: border-color 0.3s;
+  transition: border-color 0.3s, transform 0.3s ease;
 }
+
+.checkboxLabel:hover{transform: scale(1.1);}
 
 .checkboxInput {
   display: none;
